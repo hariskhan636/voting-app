@@ -1,0 +1,39 @@
+.header {
+  background-color: #06135f;
+  min-height: 50px;
+  margin: -8px;
+}
+
+.header1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  padding: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  font-size: large;
+  margin-right: 10px;
+}
+
+button {
+  position: absolute;
+  z-index: 100;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: 0;
+  width: 100px;
+}
+
+h2 {
+  color: white;
+}

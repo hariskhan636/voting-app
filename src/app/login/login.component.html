@@ -1,15 +1,24 @@
+<div class="main">
+  <img src="/assets/login.jpg" />
+</div>
+
 <form (ngSubmit)="checkCreds()" [formGroup]="loginForm">
-  <label>User Name</label>
+  <h1>Sign In</h1>
+  <label>User Name<span>*</span></label>
   <input
     type="text"
-    placeholder="Enter your username"
+    placeholder="&#xf007; Enter your username"
+    class="icon-input"
     formControlName="userName"
   />
-  <label>Password</label>
+
+  <label>Password<span>*</span></label>
   <input
     type="password"
-    placeholder="Enter your password"
+    placeholder="&#xf084; Enter your password"
+    class="icon-input"
     formControlName="password"
   />
-  <button type="submit">Login</button>
+  <button [disabled]="loginForm.invalid" type="submit">Login</button>
+  <p>Don't have an account? <a (click)="navigate()">Create Account</a></p>
 </form>

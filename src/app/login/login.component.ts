@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserdataService } from '../userdata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private userds: UserdataService) {}
+  constructor(private userds: UserdataService, private router: Router) {}
 
   ngOnInit() {
     this.users = this.userds.getData();
@@ -33,5 +34,9 @@ export class LoginComponent implements OnInit {
         console.log('Invalid login details');
       }
     });
+  }
+
+  navigate() {
+    this.router.navigate(['/register']);
   }
 }

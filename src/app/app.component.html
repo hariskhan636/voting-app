@@ -1,8 +1,15 @@
 <div class="header" [hidden]="show">
-  <ul style="display: flex; justify-content: space-evenly">
-    <li><a (click)="toggle()" routerLink="login">Login</a></li>
-    <li><a (click)="toggle()" routerLink="register">Register</a></li>
-  </ul>
+  <div class="header1">
+    <div class="list">
+      <h2>VOTING APP</h2>
+    </div>
+    <div class="list">
+      <ul style="display: flex; justify-content: center">
+        <li><a (click)="toggle()" routerLink="login">Login</a></li>
+        <li><a (click)="toggle()" routerLink="register">Register</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="main" [hidden]="!show">
