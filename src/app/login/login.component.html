@@ -1,0 +1,15 @@
+<form (ngSubmit)="checkCreds()" [formGroup]="loginForm">
+  <label>User Name</label>
+  <input
+    type="text"
+    placeholder="Enter your username"
+    formControlName="userName"
+  />
+  <label>Password</label>
+  <input
+    type="password"
+    placeholder="Enter your password"
+    formControlName="password"
+  />
+  <button type="submit">Login</button>
+</form>
