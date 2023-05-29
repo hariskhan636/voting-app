@@ -1,0 +1,50 @@
+table {
+  border-collapse: collapse;
+  border: solid 5px #ff0f74;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+table td,
+table th {
+  border: solid 2px #ff0f74;
+  padding: 10px 15px;
+  text-align: center;
+  color: whitesmoke;
+  background-color: #001f5e;
+}
+
+table th {
+  background-color: #021130;
+}
+
+.container {
+  background-image: url("/assets/login.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  margin: -8px;
+  padding: 10%;
+  font-family: cursive;
+}
+
+h2 {
+  margin: -15px;
+  background-color: #021130;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  color: black;
+  background-color: lightseagreen;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff0f74;
+  color: whitesmoke;
+}

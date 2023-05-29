@@ -21,11 +21,14 @@ a {
 li {
   list-style-type: none;
   font-size: large;
-  margin-right: 10px;
+  margin-right: 20px;
+  font-family: cursive;
 }
 
 button {
   position: absolute;
+  top: 0px;
+  left: 0px;
   z-index: 100;
   padding: 10px;
   background-color: black;
@@ -36,4 +39,26 @@ button {
 
 h2 {
   color: white;
+  font-family: cursive;
+}
+
+img {
+  width: 100%;
+  overflow: auto;
+}
+
+h3 {
+  position: absolute;
+  color: whitesmoke;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.white {
+  color: whitesmoke;
 }
