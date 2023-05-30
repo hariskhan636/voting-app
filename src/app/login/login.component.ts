@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.users.forEach((u: { userName: any; password: any }) => {
       if (u.userName == data.userName && u.password == data.password) {
         console.log('Verified');
-        this.router.navigate(['/candidate']);
+        this.router.navigate(['/results']);
       } else {
         console.log('Invalid login details');
       }

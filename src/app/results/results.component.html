@@ -1,0 +1,64 @@
+<div class="header">
+  <div class="list">
+    <ul style="display: flex; justify-content: center">
+      <li>
+        <a (click)="navigateToPosition()"> Positions</a>
+      </li>
+      <li>
+        <a (click)="navigateToCandidate()"> Candidates</a>
+      </li>
+      <li>
+        <a (click)="navigateToVoting()"> Voting</a>
+      </li>
+    </ul>
+  </div>
+  <div class="list">
+    <button (click)="logout()" class="logout">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="heading">City Results</h1>
+  <div class="city-results">
+    <div class="res" *ngFor="let pos of positions.city">
+      <h1>{{ pos.name }}</h1>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>City</th>
+          <th>Votes</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let can of data">
+            <ng-container *ngIf="can.cityPosition == pos.name">
+              <td>{{ can.name }}</td>
+              <td>{{ can.city }}</td>
+              <td>{{ can.cityVotes }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h1 class="heading">Country Results</h1>
+  <div class="country-results">
+    <div class="res" *ngFor="let pos of positions.country">
+      <h1>{{ pos.name }}</h1>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Votes</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let can of data">
+            <ng-container *ngIf="can.countryPosition == pos.name">
+              <td>{{ can.name }}</td>
+              <td>{{ can.countryVotes }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

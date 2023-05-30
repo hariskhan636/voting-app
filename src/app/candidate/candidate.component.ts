@@ -31,6 +31,8 @@ export class CandidateComponent implements OnInit {
       city: new FormControl('', Validators.required),
       countryPosition: new FormControl('', Validators.required),
       cityPosition: new FormControl('', Validators.required),
+      cityVotes: new FormControl(0),
+      countryVotes: new FormControl(0),
     });
   }
 
@@ -54,8 +56,14 @@ export class CandidateComponent implements OnInit {
     this.updateCountryPos = this.data[i].countryPosition;
   }
 
-  navigate() {
+  navigateToPosition() {
     this.router.navigate(['/position']);
+  }
+  navigateToResults() {
+    this.router.navigate(['/results']);
+  }
+  navigateToVoting() {
+    this.router.navigate(['/voting']);
   }
 
   logout() {

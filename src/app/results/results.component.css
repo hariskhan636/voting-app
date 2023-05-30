@@ -1,0 +1,100 @@
+table {
+  border-collapse: collapse;
+  border: solid 5px #ff0f74;
+  padding: 20px;
+  margin: auto;
+}
+
+table td,
+table th {
+  border: solid 2px #ff0f74;
+  padding: 10px 15px;
+  text-align: center;
+  color: whitesmoke;
+  background-color: #001f5e;
+}
+
+table th {
+  background-color: #021130;
+}
+
+.container {
+  background-image: url("/assets/login.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  margin: -8px;
+  padding: 2%;
+  font-family: cursive;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #06135f;
+  min-height: 50px;
+  margin: -8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-results {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
+}
+
+.res {
+  width: 33%;
+}
+
+.country-results {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+h1 {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.heading {
+  border: solid rgb(164, 233, 28);
+  width: 90%;
+  align-self: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+  font-size: large;
+  margin-right: 20px;
+  font-family: cursive;
+}
+
+h2 {
+  color: white;
+  font-family: cursive;
+}
+
+.list {
+  padding: 10px;
+}
+
+.logout {
+  padding: 10px;
+  background-color: #ff0f74;
+  color: whitesmoke;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+}

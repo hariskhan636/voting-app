@@ -33,6 +33,12 @@ export class PositionComponent implements OnInit {
   navigate() {
     this.router.navigate(['/candidate']);
   }
+  navigateToResults() {
+    this.router.navigate(['/results']);
+  }
+  navigateToVoting() {
+    this.router.navigate(['/voting']);
+  }
 
   logout() {
     this.router.navigate(['/']);

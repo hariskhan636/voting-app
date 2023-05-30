@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
     this.regForm = new FormGroup({
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
+      voted: new FormControl([]),
     });
 
     this.regForm.reset();

@@ -10,6 +10,8 @@ import { UserdataService } from './userdata.service';
 import { CandidateComponent } from './candidate/candidate.component';
 import { PositionComponent } from './position/position.component';
 import { CommonModule } from '@angular/common';
+import { VotingComponent } from './voting/voting.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { CommonModule } from '@angular/common';
     RegisterComponent,
     CandidateComponent,
     PositionComponent,
+    VotingComponent,
+    ResultsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +48,14 @@ import { CommonModule } from '@angular/common';
       {
         path: 'position',
         component: PositionComponent,
+      },
+      {
+        path: 'voting',
+        component: VotingComponent,
+      },
+      {
+        path: 'results',
+        component: ResultsComponent,
       },
     ]),
   ],
