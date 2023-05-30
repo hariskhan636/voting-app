@@ -33,7 +33,7 @@
         <tr *ngFor="let pos of positions.city; let i = index">
           <td>{{ pos.name }}</td>
           <td>{{ pos.status }}</td>
-          <td><button>Edit</button></td>
+          <td><button (click)="editCityBox(i)">Edit</button></td>
           <td><button (click)="deleteCityPos(i)">Delete</button></td>
         </tr>
       </tbody>
@@ -53,7 +53,7 @@
         <tr *ngFor="let pos of positions.country; let i = index">
           <td>{{ pos.name }}</td>
           <td>{{ pos.status }}</td>
-          <td><button>Edit</button></td>
+          <td><button (click)="editCountryBox(i)">Edit</button></td>
           <td><button (click)="deleteCountryPos(i)">Delete</button></td>
         </tr>
       </tbody>
@@ -91,6 +91,64 @@
         Add
       </button>
       <button (click)="displayCountry = !displayCountry">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div class="edit-modal" *ngIf="editCity || editCountry">
+  <div class="edit-city" [hidden]="!editCity">
+    <h1>Edit Position</h1>
+    <form (ngSubmit)="updateCityPosition()">
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="updateCityPos"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <label>Status</label>
+      <select
+        [(ngModel)]="updateCityStatus"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option value="open">Open</option>
+        <option value="close">Close</option>
+      </select>
+      <button
+        type="submit"
+        [disabled]="!updateCityPos || !updateCityStatus"
+        style="margin-right: 10px"
+      >
+        Update
+      </button>
+      <button (click)="editCity = !editCity">Cancel</button>
+    </form>
+  </div>
+
+  <div class="edit-country" [hidden]="!editCountry">
+    <h1>Edit Position</h1>
+    <form (ngSubmit)="updateCountryPosition()">
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="updateCountryPos"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <label>Status</label>
+      <select
+        [(ngModel)]="updateCountryStatus"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option value="open">Open</option>
+        <option value="close">Close</option>
+      </select>
+      <button
+        type="submit"
+        [disabled]="!updateCountryPos || !updateCountryStatus"
+        style="margin-right: 10px"
+      >
+        Update
+      </button>
+      <button (click)="editCountry = !editCountry">Cancel</button>
     </form>
   </div>
 </div>

@@ -11,8 +11,17 @@ export class PositionComponent implements OnInit {
   positions: any = [];
   displayCity = false;
   displayCountry = false;
+  editCity = false;
+  editCountry = false;
   cityPos: string = '';
   conPos: string = '';
+  updateCityPos = '';
+  updateCityStatus = '';
+  updateCountryPos = '';
+  updateCountryStatus = '';
+  editCityIndex = 0;
+  editCountryIndex = 0;
+  candidatePos = '';
 
   constructor(public dataService: UserdataService, private router: Router) {
     this.positions = dataService.positions;
@@ -46,5 +55,47 @@ export class PositionComponent implements OnInit {
     this.dataService.positions.country.push({ name: val, status: status });
     this.displayCountry = false;
     this.conPos = '';
+  }
+
+  editCityBox(i: number) {
+    this.editCity = true;
+    this.editCityIndex = i;
+    this.updateCityPos = this.dataService.positions.city[i].name;
+    this.updateCityStatus = this.dataService.positions.city[i].status;
+    this.candidatePos = this.dataService.positions.city[i].name;
+  }
+  updateCityPosition() {
+    let i = this.editCityIndex;
+    this.dataService.positions.city[i].name = this.updateCityPos;
+    this.dataService.positions.city[i].status = this.updateCityStatus;
+    this.editCity = false;
+    this.editCityIndex = 0;
+    this.dataService.candidates.forEach((c) => {
+      if (c.cityPosition == this.candidatePos) {
+        c.cityPosition = this.updateCityPos;
+      }
+    });
+    this.candidatePos = '';
+  }
+
+  editCountryBox(i: number) {
+    this.editCountry = true;
+    this.editCountryIndex = i;
+    this.updateCountryPos = this.dataService.positions.country[i].name;
+    this.updateCountryStatus = this.dataService.positions.country[i].status;
+    this.candidatePos = this.dataService.positions.country[i].name;
+  }
+  updateCountryPosition() {
+    let i = this.editCountryIndex;
+    this.dataService.positions.country[i].name = this.updateCountryPos;
+    this.dataService.positions.country[i].status = this.updateCountryStatus;
+    this.editCountry = false;
+    this.editCountryIndex = 0;
+    this.dataService.candidates.forEach((c) => {
+      if (c.countryPosition == this.candidatePos) {
+        c.countryPosition = this.updateCountryPos;
+      }
+    });
+    this.candidatePos = '';
   }
 }
