@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserdataService } from './userdata.service';
 import { CandidateComponent } from './candidate/candidate.component';
 import { PositionComponent } from './position/position.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,15 @@ import { PositionComponent } from './position/position.component';
     PositionComponent,
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {
+        path: '',
+        component: AppComponent,
+      },
       {
         path: 'login',
         component: LoginComponent,

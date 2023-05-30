@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserdataService } from '../userdata.service';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-candidate',
@@ -8,10 +10,81 @@ import { UserdataService } from '../userdata.service';
 })
 export class CandidateComponent implements OnInit {
   data: any = [];
+  cityPos: any = [];
+  countryPos: any = [];
+  city: any = [];
 
-  ngOnInit(): void {}
+  candidateForm!: FormGroup;
 
-  constructor(public dataService: UserdataService) {
+  showAdd = false;
+  showEdit = false;
+
+  updateName = '';
+  updateCity = '';
+  updateCityPos = '';
+  updateCountryPos = '';
+  editIndex = 0;
+
+  ngOnInit(): void {
+    this.candidateForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      countryPosition: new FormControl('', Validators.required),
+      cityPosition: new FormControl('', Validators.required),
+    });
+  }
+
+  constructor(public dataService: UserdataService, private router: Router) {
     this.data = dataService.candidates;
+    this.cityPos = dataService.positions.city;
+    this.countryPos = dataService.positions.country;
+    this.city = dataService.cities;
+  }
+
+  displayModal() {
+    this.showAdd = true;
+  }
+
+  displayEdit(i: number) {
+    this.showEdit = true;
+    this.editIndex = i;
+    this.updateName = this.data[i].name;
+    this.updateCity = this.data[i].city;
+    this.updateCityPos = this.data[i].cityPosition;
+    this.updateCountryPos = this.data[i].countryPosition;
+  }
+
+  navigate() {
+    this.router.navigate(['/position']);
+  }
+
+  logout() {
+    this.router.navigate(['/']);
+  }
+
+  addCandidate() {
+    this.showAdd = false;
+    const candidate = this.candidateForm.getRawValue();
+    this.dataService.candidates.push(candidate);
+    this.candidateForm.reset();
+  }
+
+  delete(i: number) {
+    this.dataService.candidates.splice(i, 1);
+    console.log(this.dataService.candidates);
+  }
+
+  editCandidate() {
+    let i = this.editIndex;
+    this.dataService.candidates[i].name = this.updateName;
+    this.dataService.candidates[i].city = this.updateCity;
+    this.dataService.candidates[i].cityPosition = this.updateCityPos;
+    this.dataService.candidates[i].countryPosition = this.updateCountryPos;
+    this.showEdit = false;
+    this.editIndex = 0;
+    this.updateName = '';
+    this.updateCity = '';
+    this.updateCityPos = '';
+    this.updateCountryPos = '';
   }
 }

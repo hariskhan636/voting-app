@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+
+    this.loginForm.reset();
   }
 
   checkCreds() {

@@ -1,14 +1,31 @@
+<div class="header">
+  <div class="list">
+    <ul style="display: flex; justify-content: center">
+      <li>
+        <a (click)="navigate()"> Positions</a>
+      </li>
+      <li>
+        <a (click)="displayModal()"> Add Candidates</a>
+      </li>
+    </ul>
+  </div>
+  <div class="list">
+    <button (click)="logout()" class="logout">Logout</button>
+  </div>
+</div>
+
 <div class="container">
   <table>
     <tr>
-      <td colspan="6"><h2>Condidates</h2></td>
+      <td colspan="6"><h2>Candidates</h2></td>
     </tr>
     <tr>
       <th>Name</th>
       <th>City</th>
       <th>Country Position</th>
       <th>City Position</th>
-      <th>Select</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
     <tbody>
       <tr *ngFor="let can of data; let i = index">
@@ -16,7 +33,98 @@
         <td>{{ can.city }}</td>
         <td>{{ can.countryPosition }}</td>
         <td>{{ can.cityPosition }}</td>
+        <td>
+          <button (click)="displayEdit(i)">Edit</button>
+        </td>
+        <td>
+          <button (click)="delete(i)">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="add-modal" [hidden]="!showAdd">
+  <div class="candidate-add">
+    <h1>Add Candidate</h1>
+    <form (ngSubmit)="addCandidate()" [formGroup]="candidateForm">
+      <input type="text" placeholder="Name" formControlName="name" />
+      <label for="">City</label>
+      <select formControlName="city">
+        <option value="">Select City</option>
+        <option *ngFor="let city of city">{{ city }}</option>
+      </select>
+      <label for="">City Position</label>
+      <select formControlName="cityPosition">
+        <option value="">Select Position</option>
+        <option *ngFor="let city of cityPos">{{ city.name }}</option>
+      </select>
+      <label for="">Country Position</label>
+      <select formControlName="countryPosition">
+        <option value="">Select Position</option>
+        <option *ngFor="let con of countryPos">{{ con.name }}</option>
+      </select>
+      <p
+        *ngIf="this.candidateForm.controls['name'].errors?.['required'] || 
+                    this.candidateForm.controls['city'].errors?.['required'] || 
+                    this.candidateForm.controls['cityPosition'].errors?.['required'] || 
+                    this.candidateForm.controls['countryPosition'].errors?.['required']"
+      >
+        * All fields are required
+      </p>
+      <button
+        type="submit"
+        [disabled]="candidateForm.invalid"
+        style="margin-right: 10px"
+      >
+        Confirm
+      </button>
+      <button (click)="showAdd = !showAdd">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div class="edit-modal" [hidden]="!showEdit">
+  <div class="candidate-edit">
+    <h1>Edit Candidate</h1>
+    <form (ngSubmit)="editCandidate()" [formGroup]="candidateForm">
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="updateName"
+        formControlName="name"
+      />
+      <label for="">City</label>
+      <select [(ngModel)]="updateCity" formControlName="city">
+        <option value="">Select City</option>
+        <option *ngFor="let city of city">{{ city }}</option>
+      </select>
+      <label for="">City Position</label>
+      <select [(ngModel)]="updateCityPos" formControlName="cityPosition">
+        <option value="">Select City Position</option>
+        <option *ngFor="let city of cityPos">{{ city.name }}</option>
+      </select>
+      <label for="">Country Position</label>
+      <select [(ngModel)]="updateCountryPos" formControlName="countryPosition">
+        <option value="">Select Country Position</option>
+        <option *ngFor="let con of countryPos">{{ con.name }}</option>
+      </select>
+      <p
+        *ngIf="this.candidateForm.controls['name'].errors?.['required'] || 
+              this.candidateForm.controls['city'].errors?.['required'] || 
+              this.candidateForm.controls['cityPosition'].errors?.['required'] || 
+              this.candidateForm.controls['countryPosition'].errors?.['required']"
+      >
+        * All fields are required
+      </p>
+      <button
+        type="submit"
+        [disabled]="candidateForm.invalid"
+        style="margin-right: 10px"
+      >
+        Update
+      </button>
+      <button (click)="showEdit = !showEdit">Cancel</button>
+    </form>
+  </div>
 </div>

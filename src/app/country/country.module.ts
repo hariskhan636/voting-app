@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { RawalpindiComponent } from './rawalpindi/rawalpindi.component';
 import { LahoreComponent } from './lahore/lahore.component';
 import { KarachiComponent } from './karachi/karachi.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,10 @@ import { KarachiComponent } from './karachi/karachi.component';
       {
         path: 'karachi',
         component: KarachiComponent,
+      },
+      {
+        path: 'result',
+        component: ResultComponent,
       },
     ]),
   ],

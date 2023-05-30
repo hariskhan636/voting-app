@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+
+    this.regForm.reset();
   }
 
   sendCreds() {

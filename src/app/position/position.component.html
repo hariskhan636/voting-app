@@ -1,3 +1,96 @@
-<p>
-  position works!
-</p>
+<div class="header">
+  <div class="list">
+    <ul style="display: flex; justify-content: center">
+      <li>
+        <a (click)="navigate()"> Candidates</a>
+      </li>
+      <li>
+        <a (click)="displayCity = true"> Add City Position</a>
+      </li>
+      <li>
+        <a (click)="displayCountry = true"> Add Country Position</a>
+      </li>
+    </ul>
+  </div>
+  <div class="list">
+    <button (click)="logout()" class="logout">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="tables">
+    <table>
+      <tr>
+        <td colspan="6"><h2>City Positions</h2></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let pos of positions.city; let i = index">
+          <td>{{ pos.name }}</td>
+          <td>{{ pos.status }}</td>
+          <td><button>Edit</button></td>
+          <td><button (click)="deleteCityPos(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <tr>
+        <td colspan="6"><h2>Country Positions</h2></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let pos of positions.country; let i = index">
+          <td>{{ pos.name }}</td>
+          <td>{{ pos.status }}</td>
+          <td><button>Edit</button></td>
+          <td><button (click)="deleteCountryPos(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="add-modal" *ngIf="displayCity || displayCountry">
+  <div class="add-city" [hidden]="!displayCity">
+    <h1>Add Position</h1>
+    <form (ngSubmit)="addCityPos(cityPos, 'open')">
+      <input
+        type="text"
+        placeholder="City Position"
+        [(ngModel)]="cityPos"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <button type="submit" [disabled]="!cityPos" style="margin-right: 10px">
+        Add
+      </button>
+      <button (click)="displayCity = !displayCity">Cancel</button>
+    </form>
+  </div>
+
+  <div class="add-country" [hidden]="!displayCountry">
+    <h1>Add Position</h1>
+    <form (ngSubmit)="addCountryPos(conPos, 'open')">
+      <input
+        type="text"
+        placeholder="Country Position"
+        [(ngModel)]="conPos"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <button type="submit" [disabled]="!conPos" style="margin-right: 10px">
+        Add
+      </button>
+      <button (click)="displayCountry = !displayCountry">Cancel</button>
+    </form>
+  </div>
+</div>

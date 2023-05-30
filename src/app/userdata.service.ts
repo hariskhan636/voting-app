@@ -6,7 +6,6 @@ export class UserdataService {
     {
       userName: 'test',
       password: 'test',
-      voted: false,
     },
   ];
 
@@ -16,55 +15,49 @@ export class UserdataService {
       city: 'Rawalpindi',
       countryPosition: 'Prime Minister',
       cityPosition: 'Chief Minister',
-      edit: false,
     },
     {
       name: 'Nawaz Sharif',
       city: 'Lahore',
       countryPosition: 'Prime Minister',
       cityPosition: 'Mayor',
-      edit: false,
     },
     {
       name: 'Altaf Hussain',
       city: 'Karachi',
       countryPosition: 'Prime Minister',
       cityPosition: 'Mayor',
-      edit: false,
     },
     {
       name: 'Asif Zardari',
       city: 'Karachi',
       countryPosition: 'President',
       cityPosition: 'Senator',
-      edit: false,
     },
     {
       name: 'Shahbaz Sharif',
       city: 'Lahore',
       countryPosition: 'President',
       cityPosition: 'Chief Minister',
-      edit: false,
     },
     {
       name: 'Sheikh Rasheed',
       city: 'Rawalpindi',
       countryPosition: 'Vice President',
       cityPosition: 'Senator',
-      edit: false,
     },
   ];
 
   positions = {
     city: [
-      { name: 'Mayor', status: 'open', edit: false },
-      { name: 'Chief Minister', status: 'open', edit: false },
-      { name: 'Senator', status: 'open', edit: false },
+      { name: 'Mayor', status: 'open' },
+      { name: 'Chief Minister', status: 'open' },
+      { name: 'Senator', status: 'open' },
     ],
     country: [
-      { name: 'President', status: 'open', edit: false },
-      { name: 'Vice President', status: 'open', edit: false },
-      { name: 'Prime Minister', status: 'open', edit: false },
+      { name: 'President', status: 'open' },
+      { name: 'Vice President', status: 'open' },
+      { name: 'Prime Minister', status: 'open' },
     ],
   };
 

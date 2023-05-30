@@ -1,0 +1,141 @@
+.container {
+  background-image: url("/assets/login.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  margin: -8px;
+  padding: 10%;
+  font-family: cursive;
+}
+
+.header {
+  background-color: #06135f;
+  min-height: 50px;
+  margin: -8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+  font-size: large;
+  margin-right: 20px;
+  font-family: cursive;
+}
+
+h2 {
+  color: white;
+  font-family: cursive;
+}
+
+.list {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  color: black;
+  background-color: lightseagreen;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff0f74;
+  color: whitesmoke;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.logout {
+  padding: 10px;
+  background-color: #ff0f74;
+  color: whitesmoke;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tables {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 5px #ff0f74;
+  margin: 10px auto;
+  padding: 20px;
+  width: 300px;
+}
+
+table td,
+table th {
+  border: solid 2px #ff0f74;
+  padding: 10px 15px;
+  text-align: center;
+  color: whitesmoke;
+  background-color: #001f5e;
+}
+
+table th {
+  background-color: #021130;
+}
+
+td h2 {
+  background-color: #021130;
+  padding: 10px;
+  margin: -10px -15px;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #021130;
+  margin-bottom: 15px;
+}
+
+h1 {
+  color: #021130;
+}
+
+.add-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #cccccc2e;
+}
+
+.add-city,
+.add-country {
+  border: 2px solid #021130;
+  padding: 10px;
+  margin: 10px;
+  width: 400px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: #d3ddec;
+  text-align: center;
+  font-family: cursive;
+}
