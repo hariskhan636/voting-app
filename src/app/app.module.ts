@@ -45,11 +45,6 @@ import { CommonModule } from '@angular/common';
         path: 'position',
         component: PositionComponent,
       },
-      {
-        path: 'country',
-        loadChildren: () =>
-          import('./country/country.module').then((mod) => mod.CountryModule),
-      },
     ]),
   ],
   providers: [UserdataService],
