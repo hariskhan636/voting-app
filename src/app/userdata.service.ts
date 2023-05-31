@@ -6,9 +6,11 @@ export class UserdataService {
     {
       userName: 'test',
       password: 'test',
-      voted: [],
+      voted: [''],
     },
   ];
+
+  loggedInUserName = '';
 
   candidates = [
     {
@@ -16,48 +18,48 @@ export class UserdataService {
       city: 'Rawalpindi',
       countryPosition: 'Prime Minister',
       cityPosition: 'Chief Minister',
-      cityVotes: 0,
-      countryVotes: 0,
+      cityVotes: 11000,
+      countryVotes: 35000,
     },
     {
       name: 'Nawaz Sharif',
       city: 'Lahore',
       countryPosition: 'Prime Minister',
       cityPosition: 'Mayor',
-      cityVotes: 0,
-      countryVotes: 0,
+      cityVotes: 1200,
+      countryVotes: 65,
     },
     {
       name: 'Altaf Hussain',
       city: 'Karachi',
       countryPosition: 'Prime Minister',
       cityPosition: 'Mayor',
-      cityVotes: 0,
-      countryVotes: 0,
+      cityVotes: 1350,
+      countryVotes: 13,
     },
     {
       name: 'Asif Zardari',
       city: 'Karachi',
       countryPosition: 'President',
       cityPosition: 'Senator',
-      cityVotes: 0,
-      countryVotes: 0,
+      cityVotes: 4200,
+      countryVotes: 365,
     },
     {
       name: 'Shahbaz Sharif',
       city: 'Lahore',
       countryPosition: 'President',
       cityPosition: 'Chief Minister',
-      cityVotes: 0,
-      countryVotes: 0,
+      cityVotes: 5590,
+      countryVotes: 111,
     },
     {
       name: 'Sheikh Rasheed',
       city: 'Rawalpindi',
       countryPosition: 'Vice President',
       cityPosition: 'Senator',
-      cityVotes: 0,
-      countryVotes: 0,
+      cityVotes: 19000,
+      countryVotes: 2100,
     },
   ];
 

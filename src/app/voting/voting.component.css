@@ -1,0 +1,112 @@
+.header {
+  background-color: #06135f;
+  min-height: 50px;
+  margin: -8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+  font-size: large;
+  margin-right: 20px;
+  font-family: cursive;
+}
+
+h2 {
+  color: whitesmoke;
+  font-family: cursive;
+}
+
+.list {
+  padding: 10px;
+}
+
+.logout {
+  padding: 10px;
+  background-color: #ff0f74;
+  color: whitesmoke;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
+  background-image: url("/assets/login.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  margin: -8px;
+  padding: 2%;
+  font-family: cursive;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vote {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.vote ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.vote li {
+  padding: 20px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.1);
+  filter: grayscale(1);
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+img:hover {
+  filter: grayscale(0);
+}
+
+h4 {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+  font-weight: bolder;
+  color: rgb(164, 233, 28);
+  transition: transform 0.3s ease;
+}
+
+h4:hover {
+  transform: scale(1.2);
+  color: red;
+}
+
+p {
+  font-size: 14px;
+  opacity: 0.6;
+  font-weight: bolder;
+  margin: 4px 0;
+  color: rgb(164, 233, 28);
+}
+
+.heading {
+  text-align: center;
+  color: rgb(164, 233, 28);
+  align-self: center;
+}

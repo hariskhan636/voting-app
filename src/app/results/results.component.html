@@ -29,7 +29,7 @@
           <th>Votes</th>
         </thead>
         <tbody>
-          <tr *ngFor="let can of data">
+          <tr *ngFor="let can of dataCity">
             <ng-container *ngIf="can.cityPosition == pos.name">
               <td>{{ can.name }}</td>
               <td>{{ can.city }}</td>
@@ -51,7 +51,7 @@
           <th>Votes</th>
         </thead>
         <tbody>
-          <tr *ngFor="let can of data">
+          <tr *ngFor="let can of dataCountry">
             <ng-container *ngIf="can.countryPosition == pos.name">
               <td>{{ can.name }}</td>
               <td>{{ can.countryVotes }}</td>

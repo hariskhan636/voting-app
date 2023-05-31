@@ -29,14 +29,17 @@ export class LoginComponent implements OnInit {
 
   checkCreds() {
     const data = this.loginForm.getRawValue();
+    let found = false;
     this.users.forEach((u: { userName: any; password: any }) => {
       if (u.userName == data.userName && u.password == data.password) {
-        console.log('Verified');
-        this.router.navigate(['/results']);
-      } else {
-        console.log('Invalid login details');
+        this.router.navigate(['/candidate']);
+        this.userds.loggedInUserName = data.userName;
+        found = true;
       }
     });
+    if (found == false) {
+      alert('Invalid login details');
+    }
   }
 
   navigate() {

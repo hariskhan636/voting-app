@@ -81,10 +81,7 @@ export class PositionComponent implements OnInit {
         c.cityPosition = this.updateCityPos;
       }
     });
-    this.dataService.users.forEach((u) => {
-      if (u.voted.includes(this.candidatePos)) {
-      }
-    });
+    this.updateUserArray();
     this.candidatePos = '';
   }
 
@@ -106,6 +103,19 @@ export class PositionComponent implements OnInit {
         c.countryPosition = this.updateCountryPos;
       }
     });
+    this.updateUserArray();
     this.candidatePos = '';
+  }
+
+  private updateUserArray() {
+    this.dataService.users.forEach((u) => {
+      if (u.voted.includes(this.candidatePos)) {
+        u.voted.forEach((i) => {
+          if (i == this.candidatePos) {
+            i == this.updateCityPos;
+          }
+        });
+      }
+    });
   }
 }

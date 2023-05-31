@@ -8,10 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./results.component.css'],
 })
 export class ResultsComponent implements OnInit {
-  data: any = [];
+  dataCity: any = [];
+  dataCountry: any = [];
   positions: any = [];
   constructor(dataservice: UserdataService, private router: Router) {
-    this.data = dataservice.candidates;
+    this.dataCity = dataservice.candidates;
+    this.dataCountry = dataservice.candidates;
+    this.dataCity.sort((a: any, b: any) => {
+      return b.cityVotes - a.cityVotes;
+    });
+    this.dataCountry.sort((a: any, b: any) => {
+      return b.countryVotes - a.countryVotes;
+    });
     this.positions = dataservice.positions;
   }
 

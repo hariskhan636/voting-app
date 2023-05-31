@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     this.regForm = new FormGroup({
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      voted: new FormControl([]),
+      voted: new FormControl(['']),
     });
 
     this.regForm.reset();
@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
 
   sendCreds() {
     const data = this.regForm.getRawValue();
+    data.voted = [''];
     let taken = false;
     for (let i = 0; i < this.userds.users.length; i++) {
       if (data.userName == this.userds.users[i].userName) {
