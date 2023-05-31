@@ -41,6 +41,9 @@ export class VotingComponent implements OnInit {
       } else {
         this.dataservice.candidates[i].countryVotes++;
         u.voted.push(this.dataservice.candidates[i].countryPosition);
+        alert(
+          `Vote Casted Successfully for ${this.dataservice.candidates[i].countryPosition}`
+        );
       }
     });
   }
@@ -55,6 +58,9 @@ export class VotingComponent implements OnInit {
       } else {
         this.dataservice.candidates[i].cityVotes++;
         u.voted.push(this.dataservice.candidates[i].cityPosition);
+        alert(
+          `Vote Casted Successfully for ${this.dataservice.candidates[i].cityPosition}`
+        );
       }
     });
   }

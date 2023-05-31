@@ -25,7 +25,6 @@ export class PositionComponent implements OnInit {
 
   constructor(public dataService: UserdataService, private router: Router) {
     this.positions = dataService.positions;
-    console.log(this.positions);
   }
 
   ngOnInit() {}
@@ -81,7 +80,7 @@ export class PositionComponent implements OnInit {
         c.cityPosition = this.updateCityPos;
       }
     });
-    this.updateUserArray();
+    this.updateUserArray(this.updateCityPos);
     this.candidatePos = '';
   }
 
@@ -103,18 +102,16 @@ export class PositionComponent implements OnInit {
         c.countryPosition = this.updateCountryPos;
       }
     });
-    this.updateUserArray();
+    this.updateUserArray(this.updateCityPosition);
     this.candidatePos = '';
   }
 
-  private updateUserArray() {
+  updateUserArray(newValue: any) {
     this.dataService.users.forEach((u) => {
-      if (u.voted.includes(this.candidatePos)) {
-        u.voted.forEach((i) => {
-          if (i == this.candidatePos) {
-            i == this.updateCityPos;
-          }
-        });
+      for (let i = 0; i < u.voted.length; i++) {
+        if (u.voted[i] == this.candidatePos) {
+          u.voted[i] = newValue.toString();
+        }
       }
     });
   }
