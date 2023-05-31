@@ -81,6 +81,10 @@ export class PositionComponent implements OnInit {
         c.cityPosition = this.updateCityPos;
       }
     });
+    this.dataService.users.forEach((u) => {
+      if (u.voted.includes(this.candidatePos)) {
+      }
+    });
     this.candidatePos = '';
   }
 
