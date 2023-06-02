@@ -65,14 +65,14 @@ export class UserdataService {
 
   positions = {
     city: [
-      { name: 'Mayor', status: 'open' },
-      { name: 'Chief Minister', status: 'open' },
-      { name: 'Senator', status: 'open' },
+      { name: 'Mayor', status: 'open', edit: true },
+      { name: 'Chief Minister', status: 'open', edit: true },
+      { name: 'Senator', status: 'open', edit: true },
     ],
     country: [
-      { name: 'President', status: 'open' },
-      { name: 'Vice President', status: 'open' },
-      { name: 'Prime Minister', status: 'open' },
+      { name: 'President', status: 'open', edit: true },
+      { name: 'Vice President', status: 'open', edit: true },
+      { name: 'Prime Minister', status: 'open', edit: true },
     ],
   };
 

@@ -52,12 +52,20 @@ export class PositionComponent implements OnInit {
   }
 
   addCityPos(val: string, status: string) {
-    this.dataService.positions.city.push({ name: val, status: status });
+    this.dataService.positions.city.push({
+      name: val,
+      status: status,
+      edit: true,
+    });
     this.displayCity = false;
     this.cityPos = '';
   }
   addCountryPos(val: string, status: string) {
-    this.dataService.positions.country.push({ name: val, status: status });
+    this.dataService.positions.country.push({
+      name: val,
+      status: status,
+      edit: true,
+    });
     this.displayCountry = false;
     this.conPos = '';
   }

@@ -79,6 +79,13 @@ img {
   cursor: pointer;
 }
 
+img.selected {
+  border: 3px solid rgb(204, 54, 54);
+  box-shadow: 0 4px 7px 1px rgba(0, 0, 0, 0.1);
+  filter: grayscale(0);
+  cursor: default;
+}
+
 img:hover {
   filter: grayscale(0);
 }
