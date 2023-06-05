@@ -31,14 +31,16 @@ export class VotingComponent implements OnInit {
     this.router.navigateByUrl('user/results');
   }
 
-  castCountryVote(i: number) {
-    this.dataservice.users.forEach((u) => {
+  castCountryVote(i: number, name: string) {
+    let found = false;
+    this.dataservice.users.forEach((u, j) => {
       if (
         u.userName == this.dataservice.loggedInUserName &&
         u.voted.includes(this.dataservice.candidates[i].countryPosition)
       ) {
         alert('You have already voted for this position');
-      } else {
+        found = true;
+      } else if (found == false && j == this.dataservice.users.length - 1) {
         this.dataservice.candidates[i].countryVotes++;
         u.voted.push(this.dataservice.candidates[i].countryPosition);
         alert(
@@ -46,21 +48,33 @@ export class VotingComponent implements OnInit {
         );
       }
     });
+    this.dataservice.positions.country.forEach((p) => {
+      if (p.name == name) {
+        p.edit = false;
+      }
+    });
   }
 
-  castCityVote(i: number) {
-    this.dataservice.users.forEach((u) => {
+  castCityVote(i: number, name: string) {
+    let found = false;
+    this.dataservice.users.forEach((u, j) => {
       if (
         u.userName == this.dataservice.loggedInUserName &&
         u.voted.includes(this.dataservice.candidates[i].cityPosition)
       ) {
         alert('You have already voted for this position');
-      } else {
+        found = true;
+      } else if (found == false && j == this.dataservice.users.length - 1) {
         this.dataservice.candidates[i].cityVotes++;
         u.voted.push(this.dataservice.candidates[i].cityPosition);
         alert(
           `Vote Casted Successfully for ${this.dataservice.candidates[i].cityPosition}`
         );
+      }
+    });
+    this.dataservice.positions.city.forEach((p) => {
+      if (p.name == name) {
+        p.edit = false;
       }
     });
   }

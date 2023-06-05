@@ -38,11 +38,19 @@ export class PositionComponent implements OnInit {
   }
 
   deleteCountryPos(i: number) {
-    this.dataService.positions.country.splice(i, 1);
+    if (this.dataService.positions.country[i].edit == false) {
+      alert('Voting Started. This position cant be deleted');
+    } else {
+      this.dataService.positions.country.splice(i, 1);
+    }
   }
 
   deleteCityPos(i: number) {
-    this.dataService.positions.city.splice(i, 1);
+    if (this.dataService.positions.city[i].edit == false) {
+      alert('Voting Started. This position cant be deleted');
+    } else {
+      this.dataService.positions.city.splice(i, 1);
+    }
   }
 
   addCityPos(val: string, status: string) {
@@ -65,11 +73,15 @@ export class PositionComponent implements OnInit {
   }
 
   editCityBox(i: number) {
-    this.editCity = true;
-    this.editCityIndex = i;
-    this.updateCityPos = this.dataService.positions.city[i].name;
-    this.updateCityStatus = this.dataService.positions.city[i].status;
-    this.candidatePos = this.dataService.positions.city[i].name;
+    if (this.dataService.positions.city[i].edit == false) {
+      alert('Voting Started. This position cant be edited');
+    } else {
+      this.editCity = true;
+      this.editCityIndex = i;
+      this.updateCityPos = this.dataService.positions.city[i].name;
+      this.updateCityStatus = this.dataService.positions.city[i].status;
+      this.candidatePos = this.dataService.positions.city[i].name;
+    }
   }
   updateCityPosition() {
     let i = this.editCityIndex;
@@ -87,11 +99,15 @@ export class PositionComponent implements OnInit {
   }
 
   editCountryBox(i: number) {
-    this.editCountry = true;
-    this.editCountryIndex = i;
-    this.updateCountryPos = this.dataService.positions.country[i].name;
-    this.updateCountryStatus = this.dataService.positions.country[i].status;
-    this.candidatePos = this.dataService.positions.country[i].name;
+    if (this.dataService.positions.country[i].edit == false) {
+      alert('Voting Started. This position cant be edited');
+    } else {
+      this.editCountry = true;
+      this.editCountryIndex = i;
+      this.updateCountryPos = this.dataService.positions.country[i].name;
+      this.updateCountryStatus = this.dataService.positions.country[i].status;
+      this.candidatePos = this.dataService.positions.country[i].name;
+    }
   }
   updateCountryPosition() {
     let i = this.editCountryIndex;
