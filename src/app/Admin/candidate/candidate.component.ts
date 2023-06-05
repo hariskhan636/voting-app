@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserdataService } from '../userdata.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserdataService } from 'src/app/userdata.service';
 
 @Component({
   selector: 'app-candidate',
@@ -57,13 +57,7 @@ export class CandidateComponent implements OnInit {
   }
 
   navigateToPosition() {
-    this.router.navigate(['/position']);
-  }
-  navigateToResults() {
-    this.router.navigate(['/results']);
-  }
-  navigateToVoting() {
-    this.router.navigate(['/voting']);
+    this.router.navigateByUrl('admin/position');
   }
 
   logout() {

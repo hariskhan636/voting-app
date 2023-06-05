@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserdataService } from '../userdata.service';
 import { Router } from '@angular/router';
+import { UserdataService } from 'src/app/userdata.service';
 
 @Component({
   selector: 'app-position',
@@ -30,13 +30,7 @@ export class PositionComponent implements OnInit {
   ngOnInit() {}
 
   navigate() {
-    this.router.navigate(['/candidate']);
-  }
-  navigateToResults() {
-    this.router.navigate(['/results']);
-  }
-  navigateToVoting() {
-    this.router.navigate(['/voting']);
+    this.router.navigateByUrl('admin/candidates');
   }
 
   logout() {

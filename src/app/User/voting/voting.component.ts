@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserdataService } from '../userdata.service';
+import { UserdataService } from 'src/app/userdata.service';
 
 @Component({
   selector: 'app-voting',
@@ -22,13 +22,13 @@ export class VotingComponent implements OnInit {
     this.router.navigate(['/']);
   }
   navigateToPosition() {
-    this.router.navigate(['/position']);
+    this.router.navigateByUrl('user/position');
   }
   navigateToCandidate() {
-    this.router.navigate(['/candidate']);
+    this.router.navigateByUrl('user/candidates');
   }
   navigateToResults() {
-    this.router.navigate(['/results']);
+    this.router.navigateByUrl('user/results');
   }
 
   castCountryVote(i: number) {

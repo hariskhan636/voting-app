@@ -20,7 +20,7 @@
 <div class="container">
   <div style="width: 49%; border: solid 2px rgb(164, 233, 28)">
     <h1 class="heading">City Voting</h1>
-    <div class="vote" *ngFor="let pos of positions.city">
+    <div class="vote" *ngFor="let pos of positions.city; let j = index">
       <h2>Vote for {{ pos.name }}</h2>
       <ul>
         <ng-container *ngFor="let can of candidate; let i = index">

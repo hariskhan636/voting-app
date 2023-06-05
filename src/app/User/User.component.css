@@ -1,0 +1,68 @@
+.container {
+  background-image: url("/assets/login.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  margin: -8px;
+  padding: 10%;
+  font-family: cursive;
+}
+
+.header {
+  background-color: #06135f;
+  min-height: 80px;
+  margin: -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: cursive;
+}
+
+button {
+  padding: 10px;
+  color: black;
+  background-color: lightseagreen;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+  width: 35%;
+  margin: 10px;
+}
+
+.logout {
+  padding: 10px;
+  background-color: #ff0f74;
+  color: whitesmoke;
+  border: 0;
+  border-radius: 5px;
+  font-family: cursive;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  width: max-content;
+}
+
+button:hover {
+  background-color: #ff0f74;
+  color: whitesmoke;
+}
+
+.buttons {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  border: solid #ff0f74;
+}
+
+h2 {
+  color: white;
+  padding: 5px;
+}
+
+.heading {
+  text-align: center;
+}

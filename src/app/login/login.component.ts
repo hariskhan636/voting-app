@@ -32,9 +32,13 @@ export class LoginComponent implements OnInit {
     let found = false;
     this.users.forEach((u: { userName: any; password: any }) => {
       if (u.userName == data.userName && u.password == data.password) {
-        this.router.navigate(['/candidate']);
         this.userds.loggedInUserName = data.userName;
         found = true;
+        if (this.userds.loggedInUserName == 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/user']);
+        }
       }
     });
     if (found == false) {

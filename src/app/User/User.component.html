@@ -1,0 +1,14 @@
+<div class="header">
+  <h2>USER PANEL</h2>
+  <button (click)="logout()" class="logout">Logout</button>
+</div>
+
+<div class="container">
+  <h2 class="heading">Welcome {{ user.toUpperCase() }}!</h2>
+  <div class="buttons">
+    <button (click)="navigateToCandidates()">View Candidates</button>
+    <button (click)="navigateToPosition()">View Positions</button>
+    <button (click)="navigateToResults()">View Results</button>
+    <button (click)="navigateToVoting()">Vote Now!</button>
+  </div>
+</div>

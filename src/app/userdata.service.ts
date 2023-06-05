@@ -4,6 +4,11 @@ import { Injectable } from '@angular/core';
 export class UserdataService {
   users = [
     {
+      userName: 'admin',
+      password: 'admin',
+      voted: [''],
+    },
+    {
       userName: 'test',
       password: 'test',
       voted: [''],

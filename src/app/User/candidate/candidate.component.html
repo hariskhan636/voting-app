@@ -1,0 +1,40 @@
+<div class="header">
+  <div class="list">
+    <ul style="display: flex; justify-content: center">
+      <li>
+        <a (click)="navigateToPosition()"> Positions</a>
+      </li>
+      <li>
+        <a (click)="navigateToResults()"> Results</a>
+      </li>
+      <li>
+        <a (click)="navigateToVoting()"> Voting</a>
+      </li>
+    </ul>
+  </div>
+  <div class="list">
+    <button (click)="logout()" class="logout">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+  <table>
+    <tr>
+      <td colspan="6"><h2>Candidates</h2></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Country Position</th>
+      <th>City Position</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let can of data; let i = index">
+        <td>{{ can.name }}</td>
+        <td>{{ can.city }}</td>
+        <td>{{ can.countryPosition }}</td>
+        <td>{{ can.cityPosition }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
