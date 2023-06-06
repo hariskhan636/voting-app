@@ -12,6 +12,8 @@ export class UserdataService {
       userName: 'test',
       password: 'test',
       voted: [''],
+      cityVoted: [''],
+      countryVoted: [''],
     },
   ];
 

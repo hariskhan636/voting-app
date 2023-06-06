@@ -11,19 +11,21 @@ export class ResultsComponent implements OnInit {
   dataCity: any = [];
   dataCountry: any = [];
   positions: any = [];
+
   constructor(dataservice: UserdataService, private router: Router) {
     this.dataCity = dataservice.candidates;
     this.dataCountry = dataservice.candidates;
+    this.positions = dataservice.positions;
+  }
+
+  ngOnInit() {
     this.dataCity.sort((a: any, b: any) => {
       return b.cityVotes - a.cityVotes;
     });
     this.dataCountry.sort((a: any, b: any) => {
       return b.countryVotes - a.countryVotes;
     });
-    this.positions = dataservice.positions;
   }
-
-  ngOnInit() {}
 
   navigateToPosition() {
     this.router.navigateByUrl('user/position');

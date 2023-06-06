@@ -10,13 +10,24 @@ import { UserdataService } from 'src/app/userdata.service';
 export class VotingComponent implements OnInit {
   candidate: any = [];
   positions: any = [];
+  selectedCity: any = [];
+  selectedCountry: any = [];
 
   constructor(public dataservice: UserdataService, private router: Router) {
     this.candidate = this.dataservice.candidates;
     this.positions = this.dataservice.positions;
+    this.dataservice.users.forEach((u, j) => {
+      if (u.userName == this.dataservice.loggedInUserName) {
+        this.selectedCity = dataservice.users[j].cityVoted;
+        this.selectedCountry = dataservice.users[j].countryVoted;
+      }
+    });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.selectedCity);
+    console.log(this.selectedCountry);
+  }
 
   logout() {
     this.router.navigate(['/']);
@@ -41,6 +52,9 @@ export class VotingComponent implements OnInit {
         alert('You have already voted for this position');
         found = true;
       } else if (found == false && j == this.dataservice.users.length - 1) {
+        this.dataservice.users[j].countryVoted?.push(
+          this.dataservice.candidates[i].name
+        );
         this.dataservice.candidates[i].countryVotes++;
         u.voted.push(this.dataservice.candidates[i].countryPosition);
         alert(
@@ -65,6 +79,9 @@ export class VotingComponent implements OnInit {
         alert('You have already voted for this position');
         found = true;
       } else if (found == false && j == this.dataservice.users.length - 1) {
+        this.dataservice.users[j].cityVoted?.push(
+          this.dataservice.candidates[i].name
+        );
         this.dataservice.candidates[i].cityVotes++;
         u.voted.push(this.dataservice.candidates[i].cityPosition);
         alert(

@@ -25,9 +25,15 @@
       <ul>
         <ng-container *ngFor="let can of candidate; let i = index">
           <li *ngIf="pos.name == can.cityPosition">
-            <img src="/assets/icon.png" (click)="castCityVote(i, pos.name)" />
+            <img
+              src="/assets/icon.png"
+              (click)="castCityVote(i, pos.name)"
+              [ngClass]="{ elect: selectedCity.includes(can.name) }"
+            />
             <h4>{{ can.name }}</h4>
-            <p>{{ can.city }}</p>
+            <p *ngIf="selectedCity.includes(can.name)" class="voted">
+              Voted ✔️
+            </p>
           </li>
         </ng-container>
       </ul>
@@ -43,9 +49,12 @@
             <img
               src="/assets/icon.png"
               (click)="castCountryVote(i, pos.name)"
+              [ngClass]="{ elect: selectedCountry.includes(can.name) }"
             />
             <h4>{{ can.name }}</h4>
-            <p>{{ can.city }}</p>
+            <p *ngIf="selectedCountry.includes(can.name)" class="voted">
+              Voted ✔️
+            </p>
           </li>
         </ng-container>
       </ul>

@@ -79,15 +79,15 @@ img {
   cursor: pointer;
 }
 
-img.selected {
+img:hover {
+  filter: grayscale(0);
+}
+
+.elect {
   border: 3px solid rgb(204, 54, 54);
   box-shadow: 0 4px 7px 1px rgba(0, 0, 0, 0.1);
   filter: grayscale(0);
   cursor: default;
-}
-
-img:hover {
-  filter: grayscale(0);
 }
 
 h4 {
@@ -110,6 +110,14 @@ p {
   font-weight: bolder;
   margin: 4px 0;
   color: rgb(164, 233, 28);
+}
+
+.voted {
+  font-size: 14px;
+  opacity: 1;
+  font-weight: bolder;
+  margin: 4px 0;
+  color: red;
 }
 
 .heading {
